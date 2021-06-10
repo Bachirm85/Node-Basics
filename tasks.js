@@ -73,6 +73,8 @@ function hello(){
   console.log('hello!')
 }
 
+/**asking for help */
+
 function help () {
   console.log('help\nquit\nexit')
 }
