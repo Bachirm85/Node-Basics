@@ -77,7 +77,7 @@ function remove (text) {
   if(text.length == 6 || text.length === 2) {
     list.pop();
   } else if (text.substring(7) >=list.length){
-    console.log("sorry it doesn't exist");
+    console.log("sorry that number it doesn't exist");
   } else {
     list.splice(text.substring(7),1);
   }
