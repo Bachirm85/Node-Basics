@@ -43,6 +43,10 @@ function onDataReceived(text) {
     
   } else if (text === 'help\n') {
     help();
+  }else if (text.startsWith('add')) {
+    add(text);
+  }else if (text.startsWith('list')) {
+    listPrint();
   }
   else{
     unknownCommand(text);
@@ -58,8 +62,16 @@ function hello(text) {
 }
 
 
+function add (text) {
+  text=text.trim('');
+  list.push(text);
+}
 
-
+function listPrint(){
+  for (var i=0; i<list.length; i++){
+    console.log(i + 1 + ')' + list[i]);
+    }
+ }
 /**
  * prints "unknown command"
  * This function is supposed to run when all other commands have failed
