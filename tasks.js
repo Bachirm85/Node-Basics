@@ -43,8 +43,12 @@ function onDataReceived(text) {
   } else if (text === 'help\n') {
     help();
 
-  } else if (text.startsWith('add')) {
+  } else if (text.split(" ")[0] == "add" || text.trim() == "add") {
     add(text);
+
+  // } else if(text.startsWith("add")){
+  //     add(text);
+
 
   } else if (text.startsWith('remove')) {
     remove(text);
@@ -52,8 +56,11 @@ function onDataReceived(text) {
   } else if (text==('edit\n')) {
     edit(text);
 
-  } else if (text.startsWith('list')) {
-    listPrint();
+  // } else if (text.startsWith('list')) {
+  //   listPrint();
+
+  } else if(text.startsWith("list")){
+   tasks(list);
 
   } else {
     unknownCommand(text);
@@ -75,6 +82,13 @@ function add (text) {
   list.push(text.substring(4).trim());
 }
 
+// function add(text) {
+//   if (text.trim()) {
+//     console.log(arr.push(text));
+//   } else console.log("can't add empty elements!");
+// }
+
+
 function remove (text) {
   text=text.trim();
   if(text.length == 6 || text.length === 2) {
@@ -83,6 +97,7 @@ function remove (text) {
     console.log("sorry that number it doesn't exist");
   } else {
     list.splice(text.substring(7),1);
+    
   }
 }
 
@@ -93,10 +108,26 @@ function edit(text) {
   }
 }
 
-function listPrint(){
-  for (var i=0; i<list.length; i++){
-    console.log(i + 1 + ')' + list[i]);
+// function listPrint(){
+//   for (var i=0; i<list.length; i++){
+//     console.log(i + 1 + ')' + list[i]);
+//     }
+//  }
+
+
+ function tasks(list){
+  for(let i = 0 ; i < list.length ; i++){
+    if(list[i]=="Bachir" || list[i]=="Mouawad" ){
+    console.log(i + 1 + ") " + " [✓] " + list[i]);
+  } else {
+      console.log(i + 1 + ") " + " [] " + list[i]);
     }
+  }
+}
+
+
+ function checkbox(){
+   console.log(checkbox);
  }
 /**
  * prints "unknown command"
