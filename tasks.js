@@ -46,6 +46,9 @@ function onDataReceived(text) {
   } else if (text.startsWith('add')) {
     add(text);
 
+  } else if (text.startsWith('remove')) {
+    remove(text);
+
   } else if (text.startsWith('list')) {
     listPrint();
 
@@ -67,6 +70,17 @@ function add (text) {
   text=text.trim('');
   // text=text.str.slice[0];
   list.push(text.substring(4).trim());
+}
+
+function remove (text) {
+  text=text.trim();
+  if(text.length == 6 || text.length === 2) {
+    list.pop();
+  } else if (text.substring(7) >=list.length){
+    console.log("sorry it doesn't exist");
+  } else {
+    list.splice(text.substring(7),1);
+  }
 }
 
 function listPrint(){
