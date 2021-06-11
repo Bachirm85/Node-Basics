@@ -34,13 +34,14 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
+  console.log(text)
   if (text === 'quit\n' || text === 'exit\n') {
     quit();
   }
-  else if(text === 'hello\n'){
-    hello();
-  }
-  else if (text === 'help\n') {
+  else if(text === 'hello\n' || text.startsWith('hello ')){
+    hello(text);
+    
+  } else if (text === 'help\n') {
     help();
   }
   else{
@@ -49,7 +50,11 @@ function onDataReceived(text) {
   
 }
 
-
+function hello(text) {
+  text = text.replace('\n', '');
+  text = text.trim(' ');
+  console.log(text);
+}
 
 
 /**
@@ -70,7 +75,11 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(){
-  console.log('hello!')
+  console.log('hello!');
+function hello(value) {
+  const newValue = value.replace(/ +/g," ");
+  console.log( newValue.trim() +"!");
+  }
 }
 
 /**asking for help */
