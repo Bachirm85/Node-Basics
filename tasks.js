@@ -49,6 +49,9 @@ function onDataReceived(text) {
   } else if (text.startsWith('remove')) {
     remove(text);
 
+  } else if (text==('edit\n')) {
+    edit(text);
+
   } else if (text.startsWith('list')) {
     listPrint();
 
@@ -80,6 +83,13 @@ function remove (text) {
     console.log("sorry that number it doesn't exist");
   } else {
     list.splice(text.substring(7),1);
+  }
+}
+
+function edit(text) {
+  if (text.match("edit") ){
+    console.log('error');
+
   }
 }
 
