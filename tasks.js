@@ -37,18 +37,19 @@ function onDataReceived(text) {
   console.log(text)
   if (text === 'quit\n' || text === 'exit\n') {
     quit();
-  }
-  else if(text === 'hello\n' || text.startsWith('hello ')){
+  } else if (text === 'hello\n' || text.startsWith('hello ')){
     hello(text);
-    
+
   } else if (text === 'help\n') {
     help();
-  }else if (text.startsWith('add')) {
+
+  } else if (text.startsWith('add')) {
     add(text);
-  }else if (text.startsWith('list')) {
+
+  } else if (text.startsWith('list')) {
     listPrint();
-  }
-  else{
+
+  } else {
     unknownCommand(text);
   }
   
@@ -64,7 +65,8 @@ function hello(text) {
 
 function add (text) {
   text=text.trim('');
-  list.push(text);
+  // text=text.str.slice[0];
+  list.push(text.substring(4).trim());
 }
 
 function listPrint(){
