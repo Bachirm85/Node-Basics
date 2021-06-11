@@ -17,7 +17,7 @@ function startApp(name){
   console.log("--------------------")
 }
 
-
+var list = ['Bachir', 'Mouawad']
 /**
  * Decides what to do depending on the data that was received
  * This function receives the input sent by the user.
@@ -53,8 +53,11 @@ function onDataReceived(text) {
 function hello(text) {
   text = text.replace('\n', '');
   text = text.trim(' ');
+  text = text.str.split(" ");
   console.log(text);
 }
+
+
 
 
 /**
